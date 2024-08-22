@@ -18,7 +18,7 @@ import {
   import { MoonIcon, SunIcon } from '@chakra-ui/icons'
   import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
   import Cardwidget from '../Cardwidget/Cardwidget';
- 
+  
 
 
 const NavBar = () => {
@@ -47,7 +47,7 @@ const NavBar = () => {
                 minW={0}>
                 <Avatar
                   size={'sm'}
-                  src={'https://avatars.dicebear.com/api/male/username.svg'}
+                  src={'https://prenteria.com/wp-content/uploads/2023/12/avatar-IA.webp'}
                 />
               </MenuButton>
               <MenuList alignItems={'center'}>
@@ -55,18 +55,18 @@ const NavBar = () => {
                 <Center>
                   <Avatar
                     size={'2xl'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                    src={'https://prenteria.com/wp-content/uploads/2023/12/avatar-IA.webp'}
                   />
                 </Center>
                 <br />
                 <Center>
-                  <p>Username</p>
+                  <p>Joaquin</p>
                 </Center>
                 <br />
                 <MenuDivider />
-                <MenuItem>Your Servers</MenuItem>
-                <MenuItem>Account Settings</MenuItem>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem>Ingresar</MenuItem>
+                <MenuItem>Configuraciones</MenuItem>
+                <MenuItem>Ayuda</MenuItem>
               </MenuList>
             </Menu>
           </Stack>
