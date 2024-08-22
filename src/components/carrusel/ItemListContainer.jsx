@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
-
+import Foto1 from '../assets/imagen1.png';
 
 
 const Carrusel = () => {
@@ -24,7 +24,7 @@ const Carrusel = () => {
   const side = useBreakpointValue({ base: '30px', md: '40px' });
 
   const cards = [
-    'https://i.blogs.es/8117e9/iphone-14-pro-00b/1366_2000.jpg', 
+    Foto1, 
     'https://www.apple.com/newsroom/images/live-action/wwdc-2023/standard/watchos-10/Apple-WWDC23-watchOS-10-5up-230605_big.jpg.large_2x.jpg',
     'https://st2.depositphotos.com/3230977/7864/i/450/depositphotos_78648950-stock-photo-close-up-photos-showing-process.jpg',
   ];
