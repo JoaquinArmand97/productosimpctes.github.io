@@ -1,18 +1,16 @@
-import { Card, ChakraProvider, Box } from '@chakra-ui/react';
+import { ChakraProvider,  } from '@chakra-ui/react';
+import { MainRouter } from './routes/MainRouter';
 import NavBar from './components/navBar/NavBar';
-import Carrusel from './components/carrusel/ItemListContainer';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Product from './components/Product/Product';
+import Carrusel from './components/carrusel/Carrusel';
+import  Cards from './components/cards/cards';
 
 function App() {
   return (
     <ChakraProvider>
       <NavBar />
-      <ItemListContainer greeting="Bienvenidos a Productos Importados" />
-      <Box mb={20}>
-      <Carrusel /> 
-      </Box>
-      <Product/>
+     <Carrusel/>
+     <Cards/>
+     <MainRouter/>
     </ChakraProvider>
   );
 }

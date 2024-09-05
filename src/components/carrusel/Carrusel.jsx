@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 import Foto1 from '../assets/imagen1.png';
 
 
-const Carrusel = () => {
+ const Carrusel = () => {
   const [slider, setSlider] = useState(null);
 
   const settings = {
@@ -53,13 +53,14 @@ const Carrusel = () => {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme="messenger"
+        colorScheme="orange"
         borderRadius="full"
         position="absolute"
         left={side}
         top={top}
         transform={'translate(0%, -50%)'}
         zIndex={2}
+        background={'rgba(128, 128, 128, 0.5)'}
         onClick={() => slider?.slickPrev()}
       >
         <BiLeftArrowAlt />
@@ -68,7 +69,7 @@ const Carrusel = () => {
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        colorScheme="messenger"
+        colorScheme="orange"
         borderRadius="full"
         position="absolute"
         right={side}
@@ -76,6 +77,7 @@ const Carrusel = () => {
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickNext()}
+        background={'rgba(128, 128, 128, 0.5)'}
       >
         <BiRightArrowAlt />
       </IconButton>
@@ -98,4 +100,5 @@ const Carrusel = () => {
   );
 };
 
-export default Carrusel;
+
+export default Carrusel
