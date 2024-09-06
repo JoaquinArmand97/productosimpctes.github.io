@@ -10,24 +10,29 @@ const Cards = () => {
             maxWidth="1200px"
             py={8}
             width="80%" 
-            padding={24}
+            padding={14}
         >
             {/* SimpleGrid debe encerrar todas las tarjetas */}
             <SimpleGrid spacing={25} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
                 {/* Primera tarjeta */}
                 <Card>
+                    
                     <CardHeader>
                         <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
                             <FontAwesomeIcon icon={faMobileScreenButton} />
                         </Flex>
                         <Heading size='md'>Venta Mayorista</Heading>
-                    </CardHeader>
+                    
+                         </CardHeader>
+                        
                     <CardBody>
                         <Text>Realizamos venta al por mayor. No dudes en pedir tu presupuesto</Text>
                     </CardBody>
+                
                     <CardFooter>
                         <Button>Contactanos</Button>
                     </CardFooter>
+                    
                 </Card>
 
                 {/* Segunda tarjeta */}
