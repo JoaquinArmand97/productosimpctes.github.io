@@ -1,4 +1,4 @@
-import { SimpleGrid, Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Box, Flex, Center } from '@chakra-ui/react';
+import { SimpleGrid, Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Box, Flex } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';  
 import { faMobileScreenButton, faWrench , faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
 import { Link } from 'react-router-dom';
@@ -6,46 +6,40 @@ import { Link } from 'react-router-dom';
 const Cards = () => {
     return (
         <Box
-            px={24}
+            px={{ base: 4, md: 8, lg: 16, xl: 24 }}  // Responsivo para diferentes tamaños de pantalla
             mx="auto"
-            maxWidth="1200px"
-            py={8}
-            width="80%" 
-            padding={14}
+            maxWidth={{ base: "100%", md: "80%", lg: "1200px" }}  // MaxWidth flexible
+            py={{ base: 4, md: 8 }}  // Padding arriba y abajo responsivo
+            width="100%"  // Ancho completo por defecto
         >
-            {/* SimpleGrid debe encerrar todas las tarjetas */}
-            <SimpleGrid spacing={25} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
+            {/* SimpleGrid ajusta el número de columnas automáticamente */}
+            <SimpleGrid spacing={6} columns={{ base: 1, md: 2, lg: 3 }}>
                 {/* Primera tarjeta */}
-                <Card>
-                    
+                <Card align="center">  {/* Centrar contenido */}
                     <CardHeader>
                         <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
                             <FontAwesomeIcon icon={faMobileScreenButton} />
                         </Flex>
-                        <Heading size='md'>Venta Mayorista</Heading>
-                    
-                         </CardHeader>
-                        
+                        <Heading size='md' textAlign="center">Venta Mayorista</Heading>
+                    </CardHeader>
                     <CardBody>
-                        <Text>Realizamos venta al por mayor. No dudes en pedir tu presupuesto</Text>
+                        <Text textAlign="center">Realizamos venta al por mayor. No dudes en pedir tu presupuesto</Text>
                     </CardBody>
-                
                     <CardFooter>
                         <Button>Contactanos</Button>
                     </CardFooter>
-                    
                 </Card>
 
                 {/* Segunda tarjeta */}
-                <Card>
+                <Card align="center">  {/* Centrar contenido */}
                     <CardHeader>
                         <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
-                            <FontAwesomeIcon icon={faWrench} />  {/* Usa el icono importado correctamente */}
+                            <FontAwesomeIcon icon={faWrench} />
                         </Flex>
-                        <Heading size='md'>Reparación Especializada</Heading>
+                        <Heading size='md' textAlign="center">Reparación Especializada</Heading>
                     </CardHeader>
                     <CardBody>
-                        <Text>Contamos con un servicio especializado en Apple y en dispositivos Android</Text>
+                        <Text textAlign="center">Contamos con un servicio especializado en Apple y en dispositivos Android</Text>
                     </CardBody>
                     <CardFooter>
                         <Button>Contactanos</Button>
@@ -53,18 +47,18 @@ const Cards = () => {
                 </Card>
 
                 {/* Tercera tarjeta */}
-                <Card>
+                <Card align="center">  {/* Centrar contenido */}
                     <CardHeader>
-                    <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
-                    <FontAwesomeIcon icon={faCartShopping} /> {/* Usa el icono importado correctamente */}
+                        <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
+                            <FontAwesomeIcon icon={faCartShopping} />
                         </Flex>
-                        <Heading size='md'>Productos Nuevos</Heading>
+                        <Heading size='md' textAlign="center">Productos Nuevos</Heading>
                     </CardHeader>
                     <CardBody>
-                        <Text>Contamos con equipos nuevos, con garantía de fábrica.</Text>
+                        <Text textAlign="center">Contamos con equipos nuevos, con garantía de fábrica.</Text>
                     </CardBody>
                     <CardFooter>
-                     <Button> <Link to="/Productos"> Ver aquí </Link> </Button>
+                        <Button><Link to="/Productos">Ver aquí</Link></Button>
                     </CardFooter>
                 </Card>
             </SimpleGrid>
@@ -73,4 +67,3 @@ const Cards = () => {
 }
 
 export default Cards;
-
