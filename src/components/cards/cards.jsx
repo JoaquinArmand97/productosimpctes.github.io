@@ -1,6 +1,7 @@
 import { SimpleGrid, Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Box, Flex, Center } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';  
 import { faMobileScreenButton, faWrench , faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
+import { Link } from 'react-router-dom';
 
 const Cards = () => {
     return (
@@ -63,7 +64,7 @@ const Cards = () => {
                         <Text>Contamos con equipos nuevos, con garantía de fábrica.</Text>
                     </CardBody>
                     <CardFooter>
-                        <Button>Ver aquí</Button>
+                     <Button> <Link to="/Productos"> Ver aquí </Link> </Button>
                     </CardFooter>
                 </Card>
             </SimpleGrid>

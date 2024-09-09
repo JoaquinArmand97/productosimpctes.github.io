@@ -47,12 +47,17 @@ const Product = ({ products }) => {
             <Divider />
             <CardFooter>
               <ButtonGroup spacing="2">
-                <Button variant="solid" colorScheme="blue" size="sm">
+
+              <Button variant="solid" colorScheme="blue" size="sm"><Link to={`${product.id}`}
+              >Ver Detalles</Link>
+               </Button>
+
+                {/* <Button variant="solid" colorScheme="blue" size="sm">
                   COMPRAR
                 </Button>
                 <Button variant="ghost" colorScheme="blue" size="sm">
                   AÑADIR AL CARRITO
-                </Button> 
+                </Button>  */}
               </ButtonGroup>
             </CardFooter>
           </ChakraCard>
