@@ -4,8 +4,7 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 import Foto1 from '../assets/imagen1.png';
 
-
- const Carrusel = () => {
+const Carrusel = () => {
   const [slider, setSlider] = useState(null);
 
   const settings = {
@@ -20,11 +19,16 @@ import Foto1 from '../assets/imagen1.png';
     slidesToScroll: 1,
   };
 
+  // Ajusta la posición de los botones según el tamaño de la pantalla
   const top = useBreakpointValue({ base: '90%', md: '50%' });
-  const side = useBreakpointValue({ base: '30px', md: '40px' });
+  const side = useBreakpointValue({ base: '10px', md: '40px' });
+
+  // Ajusta la altura del carrusel para diferentes pantallas
+  const height = useBreakpointValue({ base: '300px', md: '500px' });
+  const width = useBreakpointValue({ base: '100%', md: '80%' });
 
   const cards = [
-    Foto1, 
+    Foto1,
     'https://www.apple.com/newsroom/images/live-action/wwdc-2023/standard/watchos-10/Apple-WWDC23-watchOS-10-5up-230605_big.jpg.large_2x.jpg',
     'https://st2.depositphotos.com/3230977/7864/i/450/depositphotos_78648950-stock-photo-close-up-photos-showing-process.jpg',
   ];
@@ -32,9 +36,9 @@ import Foto1 from '../assets/imagen1.png';
   return (
     <Box
       position={'relative'}
-      height={'500px'} 
-      width={'80%'}  
-      maxWidth={'1200px'}  
+      height={height}  // Altura responsiva
+      width={width}    // Ancho responsivo
+      maxWidth={'1200px'}
       mx="auto"
       overflow={'hidden'}
     >
@@ -82,16 +86,16 @@ import Foto1 from '../assets/imagen1.png';
         <BiRightArrowAlt />
       </IconButton>
 
-      {}
+      {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((url, index) => (
           <Box
             key={index}
-            height="500px"  
-            width="full"
+            height={height}  // Altura de cada imagen responsiva
+            width="100%"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
-            backgroundSize="cover"  
+            backgroundSize="cover"  // Las imágenes se ajustarán completamente al contenedor
             backgroundImage={`url(${url})`}
           />
         ))}
@@ -100,5 +104,4 @@ import Foto1 from '../assets/imagen1.png';
   );
 };
 
-
-export default Carrusel
+export default Carrusel;

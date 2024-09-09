@@ -49,8 +49,13 @@ const Footer = () => {
         justify={'center'}
         align={'center'}
       >
-        
-        <Stack direction={'row'} spacing={6}>
+        {/* Título del footer */}
+        <Text fontSize={'lg'} fontWeight={'bold'}>
+          Productos Importados Corrientes
+        </Text>
+
+        {/* Botones de redes sociales */}
+        <Stack direction={{ base: 'column', md: 'row' }} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
             <FaTwitter />
           </SocialButton>
@@ -62,6 +67,8 @@ const Footer = () => {
           </SocialButton>
         </Stack>
       </Container>
+
+      {/* Línea de separación y texto de derechos reservados */}
       <Box
         borderTopWidth={1}
         borderStyle={'solid'}
@@ -76,7 +83,10 @@ const Footer = () => {
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}
         >
-          <Text>© 2024 Productos Importados Corrientes.</Text>
+          {/* Texto de derechos reservados */}
+          <Text textAlign={{ base: 'center', md: 'left' }}>
+            © 2024 Productos Importados Corrientes. Todos los derechos reservados.
+          </Text>
         </Container>
       </Box>
     </Box>
