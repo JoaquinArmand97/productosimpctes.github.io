@@ -28,7 +28,7 @@ const CardItem = () => {
     return <p>Producto no encontrado</p>;
   }
 
-  // Default empty arrays if features or details are undefined
+
   const features = product.features || [];
   const details = product.details || [];
 

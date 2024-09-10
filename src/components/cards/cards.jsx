@@ -6,16 +6,15 @@ import { Link } from 'react-router-dom';
 const Cards = () => {
     return (
         <Box
-            px={{ base: 4, md: 8, lg: 16, xl: 24 }}  // Responsivo para diferentes tamaños de pantalla
+            px={{ base: 4, md: 8, lg: 16, xl: 24 }}  
             mx="auto"
-            maxWidth={{ base: "100%", md: "80%", lg: "1200px" }}  // MaxWidth flexible
-            py={{ base: 4, md: 8 }}  // Padding arriba y abajo responsivo
-            width="100%"  // Ancho completo por defecto
+            maxWidth={{ base: "100%", md: "80%", lg: "1200px" }} 
+            py={{ base: 4, md: 8 }}  
+            width="100%"  
         >
-            {/* SimpleGrid ajusta el número de columnas automáticamente */}
             <SimpleGrid spacing={6} columns={{ base: 1, md: 2, lg: 3 }}>
-                {/* Primera tarjeta */}
-                <Card align="center">  {/* Centrar contenido */}
+               
+                <Card align="center">  
                     <CardHeader>
                         <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
                             <FontAwesomeIcon icon={faMobileScreenButton} />
@@ -30,8 +29,8 @@ const Cards = () => {
                     </CardFooter>
                 </Card>
 
-                {/* Segunda tarjeta */}
-                <Card align="center">  {/* Centrar contenido */}
+                
+                <Card align="center"> 
                     <CardHeader>
                         <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
                             <FontAwesomeIcon icon={faWrench} />
@@ -46,8 +45,8 @@ const Cards = () => {
                     </CardFooter>
                 </Card>
 
-                {/* Tercera tarjeta */}
-                <Card align="center">  {/* Centrar contenido */}
+               
+                <Card align="center"> 
                     <CardHeader>
                         <Flex alignItems="center" justifyContent="center" fontSize={50} margin={5}>
                             <FontAwesomeIcon icon={faCartShopping} />

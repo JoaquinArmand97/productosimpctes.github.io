@@ -38,15 +38,15 @@ const NavBar = () => {
             </Box>
           </Link>
 
-          {/* Spacer para empujar los elementos a la derecha */}
+          {}
           <Spacer />
 
-          {/* Links de navegación para pantallas grandes */}
+          {}
           <HStack
             spacing={8}
             alignItems={'center'}
             display={{ base: 'none', md: 'flex' }}
-            ml={{ base: '0', md: '20px' }} /* Ajusta la distancia de los elementos en pantallas grandes */
+            ml={{ base: '0', md: '20px' }} 
           >
             <Link to="/Productos" style={{ color: 'white' }}>
               Productos
@@ -62,7 +62,7 @@ const NavBar = () => {
 
         
 
-          {/* Menu hamburguesa para pantallas pequeñas */}
+          {}
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -71,7 +71,7 @@ const NavBar = () => {
             onClick={onToggle}
             background={'gray.600'}
             color={'white'}
-            ml={4} /* Margen izquierdo añadido para evitar solapamiento */
+            ml={4} //
           />
         </Flex>
 
