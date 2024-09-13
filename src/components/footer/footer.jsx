@@ -49,12 +49,12 @@ const Footer = () => {
         justify={'center'}
         align={'center'}
       >
-        {/* Título del footer */}
+     
         <Text fontSize={'lg'} fontWeight={'bold'}>
           Productos Importados Corrientes
         </Text>
 
-        {/* Botones de redes sociales */}
+      
         <Stack direction={{ base: 'column', md: 'row' }} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
             <FaTwitter />
@@ -68,7 +68,7 @@ const Footer = () => {
         </Stack>
       </Container>
 
-      {/* Línea de separación y texto de derechos reservados */}
+      
       <Box
         borderTopWidth={1}
         borderStyle={'solid'}

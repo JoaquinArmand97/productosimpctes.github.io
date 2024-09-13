@@ -7,6 +7,7 @@ import CardItemPreview from "../components/cardItemPreview/cardItemPreview";
 const Category = () => {
   const { category } = useParams();
   const normalizedCategory = category.toLowerCase(); 
+  
   const filteredProducts = ProductsData.filter(product =>
     product.category.toLowerCase() === normalizedCategory 
   );
