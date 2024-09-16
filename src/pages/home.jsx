@@ -3,7 +3,7 @@ import NavBar from '../components/navBar/NavBar';
 import Carrusel from '../components/carrusel/Carrusel';
 import Cards from '../components/cards/cards';
 import CardPromotion from '../components/CardPromotion/cardPromotion';
-
+import PlanCanje from '../components/PlanCanje/PlanCanje';
 
 function Home() {
   return (
@@ -11,6 +11,7 @@ function Home() {
         <Carrusel/>
         <Cards/>
         <CardPromotion/>
+        <PlanCanje/>
     </div>
   );
 }
