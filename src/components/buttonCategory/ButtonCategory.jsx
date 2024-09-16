@@ -1,20 +1,26 @@
-import { Select } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItemOption, MenuOptionGroup, MenuDivider, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 const ButtonCategory = () => {
   const navigate = useNavigate();
 
-  const handleCategoryChange = (event) => {
-    const selectedCategory = event.target.value;
-    navigate(`/category/${selectedCategory}`);  
+  const handleCategoryChange = (value) => {
+    navigate(`/category/${value}`);
   };
 
   return (
-    <Select placeholder="Selecciona una categoría" onChange={handleCategoryChange}>
-      <option value="iphone">IPHONE</option> 
-      <option value="xiaomi">XIAOMI</option>
-      <option value="samsung">SAMSUNG</option>
-    </Select>
+    <Menu closeOnSelect={false}>
+      <MenuButton as={Button} colorScheme="blue" margin={5}>
+        Selecciona una categoría
+      </MenuButton>
+      <MenuList minWidth="240px">
+        <MenuOptionGroup title="Categoría" type="radio" onChange={handleCategoryChange}>
+          <MenuItemOption value="iphone">IPHONE</MenuItemOption>
+          <MenuItemOption value="xiaomi">XIAOMI</MenuItemOption>
+          <MenuItemOption value="samsung">SAMSUNG</MenuItemOption>
+        </MenuOptionGroup>
+      </MenuList>
+    </Menu>
   );
 };
 

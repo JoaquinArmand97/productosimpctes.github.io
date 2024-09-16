@@ -6,7 +6,7 @@ const Category = () => {
   return (
     <div>
       <h1>Categoría seleccionada: {category}</h1>
-      {/* Aquí puedes mostrar productos filtrados por categoría */}
+      
     </div>
   );
 };

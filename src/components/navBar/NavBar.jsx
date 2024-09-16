@@ -23,6 +23,8 @@ import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import Cardwidget from '../Cardwidget/Cardwidget'
 import { Link } from 'react-router-dom'
 
+
+
 const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onToggle } = useDisclosure()
@@ -31,11 +33,13 @@ const NavBar = () => {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} background={'#1A202C'}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          {/* Logo */}
+          
           <Link to="/">
-            <Box color={'white'} fontFamily="'Roboto', sans-serif">
-              Productos Importados
-            </Box>
+
+          <Box className='bebas-neue-regular' color={'white'} fontFamily="'Bebas Neue', sans-serif" fontSize="26px">
+            Productos Importados
+          </Box>
+
           </Link>
 
           {}

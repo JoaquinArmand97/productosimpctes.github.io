@@ -8,6 +8,7 @@ import Category from '../pages/Category';
 
 
 
+
 export const MainRouter = () => (
   <BrowserRouter>
     <NavBar />
@@ -18,5 +19,6 @@ export const MainRouter = () => (
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/" element={<Home />} />
     </Routes>
+   
   </BrowserRouter>
 );

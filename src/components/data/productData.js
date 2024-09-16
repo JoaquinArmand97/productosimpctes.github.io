@@ -4,24 +4,27 @@ export const ProductsData = [
     name: "Iphone 15 Pro Max",
     description: "256 GB",
     price: 2000,
-    image: "https://cbafederal.net/wp-content/uploads/2024/08/15-pro-max.jpg",
-    category: "Apple"
+    image: "https://tecnostore.com.py/v2/wp-content/uploads/2023/12/iphone-15-pro-max-titanio-negro-256-gb-1.jpg",
+    category: "Apple",
+    onSale: true,
   },
   {
     id: 2,
     name: "Iphone 15",
     description: "128 GB",
     price: 2000,
-    image: "https://cbafederal.net/wp-content/uploads/2024/02/iphone-15.webp",
-    category: "Apple"
+    image: "https://tecnostore.com.py/v2/wp-content/uploads/2023/12/IPHONE-15-N.jpg",
+    category: "Apple",
+    onSale: true,
   },
   {
     id: 3,
-    name: "iPhone 14",
+    name: "iPhone 15 Pro",
     description: "256GB CAMARA DUAL E-Sim",
     price: 2000,
-    image: "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large_.jpg",
-    category: "Apple"
+    image: "https://tecnostore.com.py/v2/wp-content/uploads/2023/12/Captura-de-Pantalla-2023-12-29-a-las-12.06.50.png",
+    category: "Apple",
+    onSale: true,
   },
   {
     id: 4,
@@ -36,8 +39,9 @@ export const ProductsData = [
     name: "iPhone 13",
     description: "128 GB",
     price: 1800,
-    image: "https://tecnostore.com.py/v2/wp-content/uploads/2023/12/IPHONE-13-BLANCO.jpg",
-    category: "Iphone"
+    image: "https://tecnostore.com.py/v2/wp-content/uploads/2023/12/IPHONE-13-BLANCO-1024x1024.jpg",
+    category: "Iphone",
+    onSale: true,
   },
   {
     id: 6,
@@ -61,7 +65,8 @@ export const ProductsData = [
     description: "128 GB",
     price: 1900,
     image: "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14.jpg",
-    category: "Iphone"
+    category: "Iphone",
+    onSale: true,
   },
   {
     id: 9,
@@ -73,10 +78,10 @@ export const ProductsData = [
   },
   {
     id: 10,
-    name: "iPhone 14 Pro",
+    name: "iPhone 11",
     description: "128 GB",
     price: 2100,
-    image: "https://cbafederal.net/wp-content/uploads/2022/09/iPhone-14-Pro.jpg",
+    image: "https://tecnostore.com.py/v2/wp-content/uploads/2023/12/apple-iphone-11-128gb-blanco-mwlf2lla-a2111.jpg",
     category: "Iphone"
   },
   {
@@ -85,7 +90,8 @@ export const ProductsData = [
     description: "256 GB",
     price: 2200,
     image: "https://cbafederal.net/wp-content/uploads/2022/09/iPhone-14-Pro-Max.jpg",
-    category: "Samsung"
+    category: "Samsung",
+    onSale: true,
   },
   {
     id: 12,
