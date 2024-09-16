@@ -1,11 +1,12 @@
-
-import Product  from '../components/Product/Product'; 
-import {ProductsData} from '../components/data/productData';
+import Product from '../components/Product/Product'; 
+import ButtonCategory from '../components/buttonCategory/ButtonCategory';
+import { ProductsData } from '../components/data/productData';
 
 export const Productos = () => {
     return (
-           
-            <Product products={ProductsData}/> 
+        <div> 
+            <ButtonCategory />
+            <Product products={ProductsData} /> 
+        </div>
     );
 };
-
