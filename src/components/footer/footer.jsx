@@ -80,11 +80,11 @@ const Footer = () => {
           py={4}
           direction={{ base: 'column', md: 'row' }}
           spacing={4}
-          justify={{ base: 'center', md: 'space-between' }}
-          align={{ base: 'center', md: 'center' }}
+          justify={{ base: 'center'}}
+          align={{ base: 'center' }}
         >
           {/* Texto de derechos reservados */}
-          <Text textAlign={{ base: 'center', md: 'left' }}>
+          <Text textAlign={'center'}>
             © 2024 Productos Importados Corrientes. Todos los derechos reservados.
           </Text>
         </Container>

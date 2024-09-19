@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} background={'#1A202C'}>
+      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} background={'#003252'}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           
           <Link to="/">
