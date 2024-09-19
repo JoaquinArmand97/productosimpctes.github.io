@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { ProductsData } from "../components/data/productData";
 import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
-import CardItemPreview from "../components/cardItemPreview/cardItemPreview";
+import CardItemPreview from "../components/CardItemPreview/CardItemPreview"
 
 // Función para capitalizar la primera letra de la categoría
 const capitalizeFirstLetter = (string) => {
