@@ -11,6 +11,7 @@ const Cards = () => {
             maxWidth={{ base: "100%", md: "80%", lg: "1200px" }} 
             py={{ base: 4, md: 8 }}  
             width="100%"  
+            
         >
             <SimpleGrid spacing={6} columns={{ base: 1, md: 2, lg: 3 }}>
                
@@ -25,7 +26,7 @@ const Cards = () => {
                         <Text textAlign="center">Realizamos venta al por mayor. No dudes en pedir tu presupuesto</Text>
                     </CardBody>
                     <CardFooter>
-                        <Button>Contactanos</Button>
+                        <Button ><Link to="/Contacto">Contactanos</Link></Button>
                     </CardFooter>
                 </Card>
 

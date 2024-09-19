@@ -20,17 +20,7 @@ const CardPromotion = () => {
     <Box overflow="hidden" width="100%" p={5} position="relative">
       
       {/* Botón Izquierda */}
-      <IconButton
-        aria-label="Flecha izquierda"
-        icon={<Image src="https://img.icons8.com/?size=100&id=xGtnyCEIrmt1&format=png&color=000000" />} 
-        position="absolute"
-        top="50%"
-        left="0"
-        transform="translateY(-50%)"
-        bg="transparent"
-        _hover={{ bg: 'transparent' }}
-        zIndex={2}
-      />
+    
 
       {/* Contenedor del carrusel */}
       <Flex
@@ -89,18 +79,6 @@ const CardPromotion = () => {
         ))}
       </Flex>
 
-      {/* Botón Derecha */}
-      <IconButton
-        aria-label="Flecha derecha"
-        icon={<Image src="https://img.icons8.com/?size=100&id=xGtnyCEIrmt1&format=png&color=000000" />} 
-        position="absolute"
-        top="50%"
-        right="0"
-        transform="translateY(-50%)"
-        bg="transparent"
-        _hover={{ bg: 'transparent' }}
-        zIndex={2}
-      />
     </Box>
   );
 };

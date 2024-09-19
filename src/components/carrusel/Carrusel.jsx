@@ -4,6 +4,7 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 import fondocarrusel from '../assets/fondocarrusel.jpg';
 import IphonePng from '../assets/plancanjeimg11.png'; 
+import { FaChevronLeft ,  FaChevronRight } from "react-icons/fa";
 
 const Carrusel = () => {
   const [slider, setSlider] = useState(null);
@@ -34,12 +35,10 @@ const Carrusel = () => {
     <Box
       position={'relative'}
       height={height}
-      width="100vw"
-      maxWidth={'1200px'}
-      mx="auto"
+      width="100%"
+      
       overflow={'hidden'}
-      borderRadius="20"
-      padding="5"
+      padding="0"
     >
       {/* CSS files for react-slick */}
       <link
@@ -56,33 +55,31 @@ const Carrusel = () => {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme="orange"
-        borderRadius="full"
         position="absolute"
         left={side}
         top={top}
         transform={'translate(0%, -50%)'}
         zIndex={2}
-        background={'rgba(128, 128, 128, 0.5)'}
         onClick={() => slider?.slickPrev()}
+        background={'transparent'}
+        fontSize={30}
       >
-        <BiLeftArrowAlt />
+        <FaChevronLeft />
       </IconButton>
 
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        colorScheme="orange"
-        borderRadius="full"
         position="absolute"
         right={side}
         top={top}
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickNext()}
-        background={'rgba(128, 128, 128, 0.5)'}
+        background={'transparent'}
+        fontSize={30}
       >
-        <BiRightArrowAlt />
+        <FaChevronRight />
       </IconButton>
 
       {/* Slider */}

@@ -9,7 +9,8 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaInstagram, FaYoutube } from 'react-icons/fa'
+import { FaMeta , FaWhatsapp } from "react-icons/fa6";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -56,13 +57,13 @@ const Footer = () => {
 
       
         <Stack direction={{ base: 'column', md: 'row' }} spacing={6}>
-          <SocialButton label={'Twitter'} href={'#'}>
-            <FaTwitter />
+          <SocialButton  label={'Meta'} href={'https://www.facebook.com/ProductosImpCtes/'}>
+          <FaMeta />
           </SocialButton>
-          <SocialButton label={'YouTube'} href={'#'}>
-            <FaYoutube />
+          <SocialButton label={'Whatsapp'} href={'#'}>
+            <FaWhatsapp />
           </SocialButton>
-          <SocialButton label={'Instagram'} href={'#'}>
+          <SocialButton label={'Instagram'} href={'https://www.instagram.com/productosimpctes/'}>
             <FaInstagram />
           </SocialButton>
         </Stack>
