@@ -9,8 +9,8 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react'
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa'
-import { FaMeta } from "react-icons/fa6";
+import { FaInstagram, FaYoutube } from 'react-icons/fa'
+import { FaMeta , FaWhatsapp } from "react-icons/fa6";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -41,7 +41,6 @@ const Footer = () => {
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
-      width="100%"
     >
       <Container
         as={Stack}
@@ -51,13 +50,15 @@ const Footer = () => {
         justify={'center'}
         align={'center'}
       >
+     
         <Text fontSize={'lg'} fontWeight={'bold'}>
           Productos Importados Corrientes
         </Text>
 
+      
         <Stack direction={{ base: 'column', md: 'row' }} spacing={6}>
-          <SocialButton label={'Meta'} href={'https://www.facebook.com/ProductosImpCtes/'}>
-            <FaMeta />
+          <SocialButton  label={'Meta'} href={'https://www.facebook.com/ProductosImpCtes/'}>
+          <FaMeta />
           </SocialButton>
           <SocialButton label={'Whatsapp'} href={'#'}>
             <FaWhatsapp />
@@ -68,6 +69,7 @@ const Footer = () => {
         </Stack>
       </Container>
 
+      
       <Box
         borderTopWidth={1}
         borderStyle={'solid'}
@@ -79,9 +81,10 @@ const Footer = () => {
           py={4}
           direction={{ base: 'column', md: 'row' }}
           spacing={4}
-          justify={{ base: 'center' }}
+          justify={{ base: 'center'}}
           align={{ base: 'center' }}
         >
+          {/* Texto de derechos reservados */}
           <Text textAlign={'center'}>
             © 2024 Productos Importados Corrientes. Todos los derechos reservados.
           </Text>
@@ -91,22 +94,4 @@ const Footer = () => {
   )
 }
 
-const AppLayout = ({ children }) => {
-  return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      minHeight="100vh"
-    >
-      {/* Contenido de la página */}
-      <Box flex="1">
-        {children}
-      </Box>
-
-      {/* Footer */}
-      <Footer />
-    </Box>
-  )
-}
-
-export default AppLayout
+export default Footer
