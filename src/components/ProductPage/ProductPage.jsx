@@ -1,7 +1,7 @@
 import React from 'react';
-import CardItemPreview from './CardItemPreview'; // Importa tu componente
-import { useProductById } from './useProductById'; // Importa tu hook
-import { Spinner } from '@chakra-ui/react'; // Un spinner para mostrar mientras carga
+import CardItemPreview from './CardItemPreview'; 
+import { useProductById } from './useProductById'; 
+import { Spinner } from '@chakra-ui/react'; 
 
 const ProductPage = ({ productId, db }) => {
   const { product, loading } = useProductById(productId, db); 
