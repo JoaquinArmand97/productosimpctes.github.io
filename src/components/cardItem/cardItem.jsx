@@ -22,7 +22,7 @@ import {
 } from '@chakra-ui/react';
 import { MdLocalShipping } from 'react-icons/md';
 
-const ProductCard = () => {
+const cardItem = () => {
   const { id } = useParams(); // Obtener el ID del producto desde la URL
   const { product, loading } = useProductById(id); // Usar hook personalizado
 
@@ -170,4 +170,4 @@ const ProductCard = () => {
   );
 };
 
-export default ProductCard;
+export default cardItem;
