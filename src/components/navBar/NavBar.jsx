@@ -1,18 +1,11 @@
 import {
   Box,
   Flex,
-  Avatar,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
-  Stack,
   useColorMode,
-  Center,
+
   HStack,
   IconButton,
   VStack,
@@ -31,27 +24,36 @@ const NavBar = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} background={'#003252'}>
+      <Box
+        position="absolute"  
+        top="0"              
+        left="0"
+        right="0"
+        zIndex="10"           
+        bg="transparent"      
+        px={4}
+      >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          
           <Link to="/">
-
-          <Box className='bebas-neue-regular' color={'white'} fontFamily="'Bebas Neue', sans-serif" fontSize="26px">
-            Productos Importados
-          </Box>
-
+            <Box
+              className='bebas-neue-regular'
+              color={'white'}         
+              fontFamily="'Bebas Neue', sans-serif"
+              fontSize="26px"
+            >
+              Productos Importados
+            </Box>
           </Link>
 
-          {}
           <Spacer />
 
-          {}
           <HStack
             spacing={8}
             alignItems={'center'}
             display={{ base: 'none', md: 'flex' }}
-            ml={{ base: '0', md: '20px' }} 
+            ml={{ base: '0', md: '20px' }}
           >
+           
             <Link to="/Productos" style={{ color: 'white' }}>
               Productos
             </Link>
@@ -64,9 +66,6 @@ const NavBar = () => {
             </Button>
           </HStack>
 
-        
-
-          {}
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -75,11 +74,10 @@ const NavBar = () => {
             onClick={onToggle}
             background={'gray.600'}
             color={'white'}
-            ml={4} //
+            ml={4}
           />
         </Flex>
 
-        {/* Links colapsables para pantallas pequeñas */}
         <Collapse in={isOpen} animateOpacity>
           <Box pb={4} display={{ md: 'none' }}>
             <VStack as={'nav'} spacing={4}>

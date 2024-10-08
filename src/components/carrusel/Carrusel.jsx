@@ -23,24 +23,20 @@ const Carrusel = () => {
 
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '10px', md: '40px' });
-  const height = useBreakpointValue({ base: '300px', md: '500px' });
+  const height = useBreakpointValue({ base: '100vh', md: '100vh' });  
 
   const cards = [
     fondocarrusel,
-    
-    
   ];
 
   return (
     <Box
       position={'relative'}
-      height={height}
+      height={height}  
       width="100%"
-      
       overflow={'hidden'}
-      padding="0"
     >
-      {/* CSS files for react-slick */}
+      
       <link
         rel="stylesheet"
         type="text/css"
@@ -52,7 +48,6 @@ const Carrusel = () => {
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
 
-      {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
         position="absolute"
@@ -67,7 +62,6 @@ const Carrusel = () => {
         <FaChevronLeft />
       </IconButton>
 
-      {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
         position="absolute"
@@ -82,7 +76,6 @@ const Carrusel = () => {
         <FaChevronRight />
       </IconButton>
 
-      {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((url, index) => (
           <Box
@@ -95,7 +88,7 @@ const Carrusel = () => {
             backgroundSize="cover"
             backgroundImage={`url(${url})`}
           >
-            {/* Si es la primera imagen, añadimos el contenido extra */}
+           
             {index === 0 && (
               <Box
                 position="absolute"
@@ -105,13 +98,13 @@ const Carrusel = () => {
                 color="white"
                 textAlign="left"
               >
-                <Text fontSize="3xl" fontWeight="bold" fontFamily='"Oswald", sans-serif'>
+                <Text fontSize="5xl" fontWeight="bold" fontFamily='"Oswald", sans-serif'>
                   El iPhone que quieres
                 </Text>
-                <Text fontSize="lg">
+                <Text fontSize="4x1" fontWeight="bold" >
                   Experimenta la mejor tecnología de Apple
                 </Text>
-                <Button background="grey"mt={4} colorScheme="teal" size="lg">
+                <Button background="grey" mt={4} colorScheme="teal" size="lg" >
                   Comprar ahora
                 </Button>
               </Box>

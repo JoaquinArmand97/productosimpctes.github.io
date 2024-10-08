@@ -1,36 +1,46 @@
-import React from 'react';
+'use client';
+
 import { useParams } from 'react-router-dom';
-import { ProductsData } from '../data/productData';
+import { useProductById } from '../hooks/useProductById';
 import {
-  Container,
-  SimpleGrid,
-  Flex,
-  Image,
-  Stack,
   Box,
-  Heading,
+  chakra,
+  Container,
+  Stack,
   Text,
+  Image,
+  Flex,
   VStack,
+  Button,
+  Heading,
+  SimpleGrid,
+  StackDivider,
+  useColorModeValue,
   List,
   ListItem,
-  Button,
-  useColorModeValue,
-  StackDivider,
+  Spinner,
 } from '@chakra-ui/react';
 import { MdLocalShipping } from 'react-icons/md';
 
-const CardItem = () => {
-  const { id } = useParams();
-  const productId = parseInt(id, 10);
-  const product = ProductsData.find(p => p.id === productId);
+const ProductCard = () => {
+  const { id } = useParams(); // Obtener el ID del producto desde la URL
+  const { product, loading } = useProductById(id); // Usar hook personalizado
 
-  if (!product) {
-    return <p>Producto no encontrado</p>;
+  if (loading) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <Spinner size="xl" />
+      </Box>
+    ); // Mostrar un spinner mientras carga
   }
 
-
-  const features = product.features || [];
-  const details = product.details || [];
+  if (!product) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <Text fontSize="2xl">Producto no encontrado</Text>
+      </Box>
+    ); // Mostrar mensaje si no se encuentra el producto
+  }
 
   return (
     <Container maxW={'7xl'}>
@@ -41,12 +51,12 @@ const CardItem = () => {
         <Flex>
           <Image
             rounded={'md'}
-            alt={product.name}
+            alt={'Imagen del producto'}
             src={product.image}
-            fit={'cover'}
-            align={'center'}
+            objectFit={'contain'}  // Cambiado de 'cover' a 'contain' para evitar recortes
+            objectPosition={'center'} // Centrar la imagen
             w={'100%'}
-            h={{ base: '100%', sm: '400px', lg: '500px' }}
+            h={{ base: '100%', sm: '350px', lg: '450px' }} // Reducir la altura para que no se vea tan grande
           />
         </Flex>
         <Stack spacing={{ base: 6, md: 10 }}>
@@ -61,7 +71,7 @@ const CardItem = () => {
               color={useColorModeValue('gray.900', 'gray.400')}
               fontWeight={300}
               fontSize={'2xl'}>
-              ${product.price} USD
+              ${product.price}
             </Text>
           </Box>
 
@@ -76,10 +86,12 @@ const CardItem = () => {
                 color={useColorModeValue('gray.500', 'gray.400')}
                 fontSize={'2xl'}
                 fontWeight={'300'}>
-                {product.shortDescription}
+                {product.description}
               </Text>
               <Text fontSize={'lg'}>
-                {product.description}
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid amet
+                at delectus doloribus dolorum expedita hic, ipsum maxime modi nam officiis
+                porro, quae, quisquam quos reprehenderit velit? Natus, totam.
               </Text>
             </VStack>
             <Box>
@@ -89,14 +101,19 @@ const CardItem = () => {
                 fontWeight={'500'}
                 textTransform={'uppercase'}
                 mb={'4'}>
-                Features
+                Características
               </Text>
 
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
                 <List spacing={2}>
-                  {features.map((feature, index) => (
-                    <ListItem key={index}>{feature}</ListItem>
-                  ))}
+                  <ListItem>Chronograph</ListItem>
+                  <ListItem>Master Chronometer Certified</ListItem>
+                  <ListItem>Tachymeter</ListItem>
+                </List>
+                <List spacing={2}>
+                  <ListItem>Anti‑magnetic</ListItem>
+                  <ListItem>Chronometer</ListItem>
+                  <ListItem>Small seconds</ListItem>
                 </List>
               </SimpleGrid>
             </Box>
@@ -107,18 +124,22 @@ const CardItem = () => {
                 fontWeight={'500'}
                 textTransform={'uppercase'}
                 mb={'4'}>
-                Product Details
+                Detalles del Producto
               </Text>
 
               <List spacing={2}>
-                {details.map((detail, index) => (
-                  <ListItem key={index}>
-                    <Text as={'span'} fontWeight={'bold'}>
-                      {detail.label}:
-                    </Text>{' '}
-                    {detail.value}
-                  </ListItem>
-                ))}
+                <ListItem>
+                  <Text as={'span'} fontWeight={'bold'}>
+                    Material:
+                  </Text>{' '}
+                  {product.material}
+                </ListItem>
+                <ListItem>
+                  <Text as={'span'} fontWeight={'bold'}>
+                    Color:
+                  </Text>{' '}
+                  {product.color}
+                </ListItem>
               </List>
             </Box>
           </Stack>
@@ -136,12 +157,12 @@ const CardItem = () => {
               transform: 'translateY(2px)',
               boxShadow: 'lg',
             }}>
-            Add to cart
+            Agregar al carrito
           </Button>
 
           <Stack direction="row" alignItems="center" justifyContent={'center'}>
             <MdLocalShipping />
-            <Text>2-3 business days delivery</Text>
+            <Text>Entrega en 2-3 días hábiles</Text>
           </Stack>
         </Stack>
       </SimpleGrid>
@@ -149,4 +170,4 @@ const CardItem = () => {
   );
 };
 
-export default CardItem;
+export default ProductCard;

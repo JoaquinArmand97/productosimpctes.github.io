@@ -10,7 +10,7 @@ const ButtonCategory = () => {
 
   return (
     <Menu closeOnSelect={false}>
-      <MenuButton as={Button} colorScheme="blue" margin={5}>
+      <MenuButton as={Button} colorScheme="blue" margin={20}>
         Selecciona una categoría
       </MenuButton>
       <MenuList minWidth="240px">
