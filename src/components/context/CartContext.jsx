@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
     setCartState(cartState.filter((item) => item.id !== product.id));
   };
 
-
+  // Aquí corregimos la declaración de los valores compartidos
   const valuesToShare = {
     cartState,
     addItem,

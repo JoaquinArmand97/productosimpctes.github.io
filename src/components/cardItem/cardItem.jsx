@@ -21,8 +21,8 @@ import {
 import { CartContext } from '../context/CartContext';
 
 const CardItem = () => {
-  const { id } = useParams(); // Obtener el ID del producto desde la URL
-  const { product, loading } = useProductById(id); // Usar hook personalizado
+  const { id } = useParams(); 
+  const { product, loading } = useProductById(id); 
 
   const [count, setCount] = useState(0); // Estado para el contador
   const { addItem } = useContext(CartContext);
