@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Flex, useColorModeValue, Heading, Text, Stack, Image, keyframes, IconButton } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue, Heading, Text, Stack, Image } from '@chakra-ui/react';
 import { ProductsData } from '../data/productData';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { keyframes } from '@emotion/react';
 
 const moveLeft = keyframes`
   0% {

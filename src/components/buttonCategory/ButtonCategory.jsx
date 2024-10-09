@@ -1,4 +1,4 @@
-import { Menu, MenuButton, MenuList, MenuItemOption, MenuOptionGroup, MenuDivider, Button } from '@chakra-ui/react';
+import { Menu, MenuButton, MenuList, MenuItemOption, MenuOptionGroup, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 const ButtonCategory = () => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Text, Image } from '@chakra-ui/react';
-import planCanje from '../assets/plancanje.png';
+
 import plancanjeimg11 from '../assets/plancanjeimg11.png'; 
 import plancanjeimg12 from '../assets/plancanjeimg12.png'; 
-import 'animate.css';
+
 
 export const PlanCanje = () => {
   return (
