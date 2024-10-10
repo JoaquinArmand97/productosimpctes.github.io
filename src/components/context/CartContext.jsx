@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import PropTypes from "prop-types"; // Asegúrate de importar PropTypes
 
 export const CartContext = createContext();
 
@@ -9,11 +10,11 @@ export const CartProvider = ({ children }) => {
     const existingProduct = cartState.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // Si el producto ya está en el carrito, actualizamos la cantidad, sumando solo la diferencia
+      // Si el producto ya está en el carrito, actualizamos la cantidad
       setCartState(
         cartState.map((item) =>
           item.id === product.id
-            ? { ...item, qtyItem: item.qtyItem + qtyItem } // Se suma la cantidad pasada como argumento
+            ? { ...item, qtyItem: item.qtyItem + qtyItem }
             : item
         )
       );
@@ -47,7 +48,6 @@ export const CartProvider = ({ children }) => {
     setCartState(cartState.filter((item) => item.id !== product.id));
   };
 
-  // Aquí corregimos la declaración de los valores compartidos
   const valuesToShare = {
     cartState,
     addItem,
@@ -61,3 +61,10 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+// Aquí agregamos la validación de PropTypes para `children`
+CartProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default CartProvider;
