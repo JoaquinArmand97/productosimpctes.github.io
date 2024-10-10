@@ -23,26 +23,26 @@ import { CartContext } from '../context/CartContext';
 const CardItem = () => {
   const { id } = useParams(); 
   const { product, loading } = useProductById(id); 
-
+  
   const [count, setCount] = useState(0); // Estado para el contador
   const { addItem } = useContext(CartContext);
 
-  const handleIncrement = () => {
-    if (count < product.stock) {
-      setCount(prevCount => prevCount + 1); // Incrementar contador
+  function handleIncrement() {
+    if (product ) {
+      setCount(count + 1); // Incrementar contador
     }
   };
 
-  const handleDecrement = () => {
+  function handleDecrement(){
     if (count > 0) {
-      setCount(prevCount => prevCount - 1); // Decrementar contador
+      setCount(count - 1); 
     }
   };
 
   const handleAddToCart = () => {
     if (count > 0) {
-      addItem(product, count); // Agregar el producto al carrito con la cantidad actual
-      setCount(0); // Reiniciar contador después de agregar al carrito
+      addItem(product, count); 
+      setCount(0); 
     }
   };
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Box, Button, IconButton, Text, useBreakpointValue } from '@chakra-ui/react';
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 import fondocarrusel from '../assets/fondocarrusel.jpg';
 import IphonePng from '../assets/plancanjeimg11.png'; 
