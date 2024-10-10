@@ -1,8 +1,9 @@
-import React from 'react';
+// Importa `keyframes` desde `@emotion/react`
+import { keyframes } from '@emotion/react';
 import { Box, Flex, useColorModeValue, Heading, Text, Stack, Image } from '@chakra-ui/react';
 import { ProductsData } from '../data/productData';
-import { keyframes } from '@emotion/react';
 
+// Definición de la animación usando keyframes
 const moveLeft = keyframes`
   0% {
     transform: translateX(0);
@@ -13,16 +14,14 @@ const moveLeft = keyframes`
 `;
 
 const CardPromotion = () => {
+  const bgColor = useColorModeValue('white', 'gray.800');
+  const imgBgColor = useColorModeValue('gray.100', 'gray.700');
+
   const filteredProducts = ProductsData.filter(product => product.onSale === true);
   const productList = [...filteredProducts, ...filteredProducts];
 
   return (
     <Box overflow="hidden" width="100%" p={5} position="relative">
-      
-      {/* Botón Izquierda */}
-    
-
-      {/* Contenedor del carrusel */}
       <Flex
         animation={`${moveLeft} 40s linear infinite`}
         justify="flex-start"
@@ -37,7 +36,7 @@ const CardPromotion = () => {
             p={6}
             maxW={'330px'}
             w={'full'}
-            bg={useColorModeValue('white', 'gray.800')}
+            bg={bgColor}
             boxShadow={'2xl'}
             rounded={'lg'}
             pos={'relative'}
@@ -48,7 +47,7 @@ const CardPromotion = () => {
               pos={'relative'}
               height={'230px'}
               overflow={'hidden'}
-              bg={useColorModeValue('gray.100', 'gray.700')}
+              bg={imgBgColor}
               display="flex"
               alignItems="center"
               justifyContent="center"
@@ -78,10 +77,8 @@ const CardPromotion = () => {
           </Box>
         ))}
       </Flex>
-
     </Box>
   );
 };
 
 export default CardPromotion;
-
