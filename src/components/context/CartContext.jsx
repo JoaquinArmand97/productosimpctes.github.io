@@ -62,7 +62,7 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-// Aquí agregamos la validación de PropTypes para `children`
+
 CartProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
