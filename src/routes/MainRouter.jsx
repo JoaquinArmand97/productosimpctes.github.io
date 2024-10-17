@@ -5,6 +5,8 @@ import Home from '../pages/home'; // Asegúrate de que la 'H' esté bien escrita
 import NavBar from '../components/navBar/NavBar';
 import CardItem from '../components/cardItem/cardItem'; // Verifica el nombre del componente
 import Category from '../pages/Category';
+import Checkout from '../pages/checkOut';
+
 
 export const MainRouter = () => (
   <BrowserRouter>
@@ -15,6 +17,8 @@ export const MainRouter = () => (
       <Route path="/productos/:id" element={<CardItem />} />
       <Route path="/category/:category" element={<Category />} />
       <Route path="/contacto" element={<Contacto />} />
+      <Route path="/checkout" element={<Checkout />} />
+
     </Routes>
   </BrowserRouter>
 );

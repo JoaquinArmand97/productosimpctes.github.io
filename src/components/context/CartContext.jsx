@@ -6,35 +6,40 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartState, setCartState] = useState([]);
 
-  const addItem = (product, qtyItem) => {
-    const existingProduct = cartState.find((item) => item.id === product.id);
 
+  const addItem = (product) => {
+    const existingProduct = cartState.find((item) => item.id === product.id);
+  
     if (existingProduct) {
-      // Si el producto ya está en el carrito, actualizamos la cantidad
+      // Si el producto ya está en el carrito, actualizamos la cantidad, sumando solo la diferencia
       setCartState(
         cartState.map((item) =>
           item.id === product.id
-            ? { ...item, qtyItem: item.qtyItem + qtyItem }
+            ? { ...item, qtyItem: item.qtyItem + 1 } // Aquí solo sumamos 1 a la cantidad existente
             : item
         )
       );
     } else {
       // Si el producto no está en el carrito, lo agregamos
-      setCartState([...cartState, { ...product, qtyItem }]);
+      setCartState([...cartState, { ...product, qtyItem: 1 }]);
     }
   };
 
+  
+  
   const removeItem = (product) => {
     const existingProduct = cartState.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // Si la cantidad es 1, eliminamos el producto del carrito
       if (existingProduct.qtyItem === 1) {
-        setCartState(cartState.filter((item) => item.id !== product.id));
+       
+        setCartState((prevCartState) =>
+          prevCartState.filter((item) => item.id !== product.id)
+        );
       } else {
-        // Si la cantidad es mayor a 1, restamos 1 a la cantidad existente
-        setCartState(
-          cartState.map((item) =>
+       
+        setCartState((prevCartState) =>
+          prevCartState.map((item) =>
             item.id === product.id
               ? { ...item, qtyItem: item.qtyItem - 1 }
               : item
@@ -44,10 +49,14 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  // Función para eliminar completamente un producto del carrito
   const deleteItem = (product) => {
-    setCartState(cartState.filter((item) => item.id !== product.id));
+    setCartState((prevCartState) =>
+      prevCartState.filter((item) => item.id !== product.id)
+    );
   };
 
+  // Valores que serán compartidos a través del contexto
   const valuesToShare = {
     cartState,
     addItem,

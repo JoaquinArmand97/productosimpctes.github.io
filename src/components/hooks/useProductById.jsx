@@ -1,6 +1,6 @@
 import React from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/firebaseConfig"; // Asegúrate de que esta sea la ruta correcta
+import { db } from "../firebase/firebaseConfig"; 
 
 export const useProductById = (id) => {
     const [product, setProduct] = React.useState(null);

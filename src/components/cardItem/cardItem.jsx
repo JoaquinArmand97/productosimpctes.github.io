@@ -24,9 +24,9 @@ const CardItem = () => {
   const { id } = useParams();
   const { product, loading } = useProductById(id);
   const [count, setCount] = useState(0);
-  const { addItem } = useContext(CartContext);
+  const { addItem , removeItem} = useContext(CartContext);
 
-  // Llamamos todos los hooks aquí, antes de cualquier retorno
+  // Colores y estilos
   const priceTextColor = useColorModeValue('gray.900', 'gray.400');
   const headerBg = useColorModeValue('gray.900', 'gray.50');
   const buttonTextColor = useColorModeValue('white', 'gray.900');
@@ -36,23 +36,29 @@ const CardItem = () => {
   const descriptionColor = useColorModeValue('gray.500', 'gray.400');
 
   const handleIncrement = () => {
-    setCount(prevCount => prevCount + 1);
+    setCount(prevCount => {
+      const newCount = prevCount + 1;
+      addItem(product, newCount);
+      return newCount; 
+    });
   };
-
+  
   const handleDecrement = () => {
     if (count > 0) {
-      setCount(prevCount => prevCount - 1);
+        const newCount = count - 1;
+        setCount(newCount);
+        removeItem(product);
     }
-  };
+};
+
 
   const handleAddToCart = () => {
     if (count > 0) {
-      addItem(product, count);
-      setCount(0);
+      addItem(product, count); // Solo agrega la cantidad seleccionada
+      setCount(0); // Reinicia el contador después de agregar
     }
   };
 
-  // Retornos tempranos para loading y no encontrado
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
@@ -100,7 +106,6 @@ const CardItem = () => {
 
           <Stack spacing={{ base: 4, sm: 6 }} direction={'column'} divider={<StackDivider borderColor={borderColor} />}>
             <VStack spacing={{ base: 4, sm: 6 }}>
-              {/* Usa la variable descriptionColor en lugar de llamar a useColorModeValue aquí */}
               <Text color={descriptionColor} fontSize={'2xl'} fontWeight={'300'}>
                 {product.description}
               </Text>

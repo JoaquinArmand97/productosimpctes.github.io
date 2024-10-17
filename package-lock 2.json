@@ -2785,9 +2785,9 @@
       }
     },
     "node_modules/electron-to-chromium": {
-      "version": "1.5.38",
-      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.38.tgz",
-      "integrity": "sha512-VbeVexmZ1IFh+5EfrYz1I0HTzHVIlJa112UEWhciPyeOcKJGeTv6N8WnG4wsQB81DGCaVEGhpSb6o6a8WYFXXg==",
+      "version": "1.5.36",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.36.tgz",
+      "integrity": "sha512-HYTX8tKge/VNp6FGO+f/uVDmUkq+cEfcxYhKf15Akc4M5yxt5YmorwlAitKWjWhWQnKcDRBAQKXkhqqXMqcrjw==",
       "dev": true
     },
     "node_modules/emoji-regex": {
@@ -3447,9 +3447,9 @@
       }
     },
     "node_modules/framer-motion": {
-      "version": "11.11.9",
-      "resolved": "https://registry.npmjs.org/framer-motion/-/framer-motion-11.11.9.tgz",
-      "integrity": "sha512-XpdZseuCrZehdHGuW22zZt3SF5g6AHJHJi7JwQIigOznW4Jg1n0oGPMJQheMaKLC+0rp5gxUKMRYI6ytd3q4RQ==",
+      "version": "11.11.8",
+      "resolved": "https://registry.npmjs.org/framer-motion/-/framer-motion-11.11.8.tgz",
+      "integrity": "sha512-mnGQNEoz99GtFXBBPw+Ag5K4FcfP5XrXxrxHz+iE4Lmg7W3sf2gKmGuvfkZCW/yIfcdv5vJd6KiSPETH1Pw68Q==",
       "dependencies": {
         "tslib": "^2.4.0"
       },
