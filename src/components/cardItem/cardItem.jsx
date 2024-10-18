@@ -24,9 +24,8 @@ const CardItem = () => {
   const { id } = useParams();
   const { product, loading } = useProductById(id);
   const [count, setCount] = useState(0);
-  const { addItem , removeItem} = useContext(CartContext);
+  const { addItem, deleteItem } = useContext(CartContext);
 
-  // Colores y estilos
   const priceTextColor = useColorModeValue('gray.900', 'gray.400');
   const headerBg = useColorModeValue('gray.900', 'gray.50');
   const buttonTextColor = useColorModeValue('white', 'gray.900');
@@ -36,26 +35,28 @@ const CardItem = () => {
   const descriptionColor = useColorModeValue('gray.500', 'gray.400');
 
   const handleIncrement = () => {
-    setCount(prevCount => {
-      const newCount = prevCount + 1;
-      addItem(product, newCount);
-      return newCount; 
-    });
+    setCount(prevCount => prevCount + 1);
   };
-  
+
   const handleDecrement = () => {
     if (count > 0) {
-        const newCount = count - 1;
-        setCount(newCount);
-        removeItem(product);
+      setCount(prevCount => prevCount - 1);
     }
-};
-
+  };
 
   const handleAddToCart = () => {
     if (count > 0) {
-      addItem(product, count); // Solo agrega la cantidad seleccionada
-      setCount(0); // Reinicia el contador después de agregar
+      addItem({ ...product, qtyItem: count });
+      setCount(0);
+    } else {
+      alert("Debes seleccionar al menos un producto");
+    }
+  };
+
+  const handleRemoveFromCart = () => {
+    if (count > 0) {
+      deleteItem(product);
+      setCount(0);
     }
   };
 
@@ -167,6 +168,14 @@ const CardItem = () => {
           >
             Agregar al carrito
           </Button>
+
+          <Button
+            onClick={handleRemoveFromCart}
+            mt={4}
+            colorScheme="red"
+          >
+            Eliminar del carrito
+          </Button>
         </Stack>
       </SimpleGrid>
     </Container>
@@ -174,3 +183,4 @@ const CardItem = () => {
 };
 
 export default CardItem;
+

@@ -3,7 +3,7 @@ import { Productos } from '../pages/Productos'; // Verifica si es mayúscula o m
 import { Contacto } from '../pages/contacto'; // Asegúrate de que este nombre coincide
 import Home from '../pages/home'; // Asegúrate de que la 'H' esté bien escrita
 import NavBar from '../components/navBar/NavBar';
-import CardItem from '../components/cardItem/cardItem'; // Verifica el nombre del componente
+import CardItem from '../components/cardItem/cardItem'; 
 import Category from '../pages/Category';
 import Checkout from '../pages/checkout';
 
