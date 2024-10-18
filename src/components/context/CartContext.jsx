@@ -54,7 +54,10 @@ export const CartProvider = ({ children }) => {
       prevCartState.filter((item) => item.id !== product.id)
     );
   };
-  
+
+  const clearCart = () => {
+    setCartState([]); // Esto vacía el carrito
+  };
 
   // Calcular el precio total
   const totalPrice = () => {
@@ -71,9 +74,11 @@ export const CartProvider = ({ children }) => {
     addItem,
     removeItem,
     deleteItem,
+    clearCart, // Nueva función
     totalPrice,
     totalItems,
   };
+
 
   return (
     <CartContext.Provider value={valuesToShare}>

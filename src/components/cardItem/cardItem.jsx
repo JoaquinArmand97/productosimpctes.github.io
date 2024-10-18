@@ -103,6 +103,7 @@ const CardItem = () => {
             <Text color={priceTextColor} fontWeight={300} fontSize={'2xl'}>
               ${product.price}
             </Text>
+            
           </Box>
 
           <Stack spacing={{ base: 4, sm: 6 }} direction={'column'} divider={<StackDivider borderColor={borderColor} />}>

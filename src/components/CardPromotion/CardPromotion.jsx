@@ -1,9 +1,7 @@
-// Importa `keyframes` desde `@emotion/react`
 import { keyframes } from '@emotion/react';
 import { Box, Flex, useColorModeValue, Heading, Text, Stack, Image } from '@chakra-ui/react';
 import { ProductsData } from '../data/productData';
 
-// Definición de la animación usando keyframes
 const moveLeft = keyframes`
   0% {
     transform: translateX(0);

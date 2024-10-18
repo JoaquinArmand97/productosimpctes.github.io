@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/react';
 
 const Checkout = () => {
-  const { cartState, totalPrice } = useContext(CartContext); // Cambié cart por cartState
+  const { cartState, totalPrice } = useContext(CartContext); 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
