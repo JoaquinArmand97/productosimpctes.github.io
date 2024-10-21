@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import { useState} from 'react';
 import { Box, Button, IconButton, Text, useBreakpointValue } from '@chakra-ui/react';
 import Slider from 'react-slick';
 import fondocarrusel from '../assets/fondocarrusel.jpg';
