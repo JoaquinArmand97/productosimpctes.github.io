@@ -56,15 +56,15 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    setCartState([]); // Esto vacía el carrito
+    setCartState([]); 
   };
 
-  // Calcular el precio total
+
   const totalPrice = () => {
     return cartState.reduce((acc, item) => acc + item.price * item.qtyItem, 0);
   };
 
-  // Calcular el total de productos en el carrito
+ 
   const totalItems = () => {
     return cartState.reduce((acc, item) => acc + item.qtyItem, 0);
   };
@@ -74,7 +74,7 @@ export const CartProvider = ({ children }) => {
     addItem,
     removeItem,
     deleteItem,
-    clearCart, // Nueva función
+    clearCart,
     totalPrice,
     totalItems,
   };
