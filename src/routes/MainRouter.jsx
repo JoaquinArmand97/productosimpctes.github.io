@@ -5,7 +5,7 @@ import Home from '../pages/home';
 import NavBar from '../components/navBar/NavBar';
 import CardItem from '../components/cardItem/cardItem'; 
 import Category from '../pages/Category';
-import Checkout from '../pages/checkout';
+import Checkout from '../pages/Checkout';
 
 
 export const MainRouter = () => (
