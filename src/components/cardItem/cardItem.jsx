@@ -146,12 +146,6 @@ const CardItem = () => {
             </Box>
           </Stack>
 
-          <Flex alignItems="center" mt={4}>
-            <Button onClick={handleDecrement} mr={4}>-</Button>
-            <Text>{count}</Text>
-            <Button onClick={handleIncrement} ml={4}>+</Button>
-          </Flex>
-
           <Button
             rounded={'none'}
             w={'full'}
@@ -167,16 +161,10 @@ const CardItem = () => {
             }}
             onClick={handleAddToCart}
           >
-            Agregar al carrito
+            Contactanos
           </Button>
 
-          <Button
-            onClick={handleRemoveFromCart}
-            mt={4}
-            colorScheme="red"
-          >
-            Eliminar del carrito
-          </Button>
+         
         </Stack>
       </SimpleGrid>
     </Container>

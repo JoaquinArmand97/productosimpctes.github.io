@@ -34,6 +34,7 @@ const Carrusel = () => {
       height={height}  
       width="100%"
       overflow={'hidden'}
+      
     >
       
       <link
@@ -76,53 +77,54 @@ const Carrusel = () => {
       </IconButton>
 
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.map((url, index) => (
-          <Box
-            key={index}
-            height={height}
-            width="100%"
-            position="relative"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            backgroundImage={`url(${url})`}
-          >
-            {index === 0 && (
-              <Box
-                position="absolute"
-                top="35%"
-                left="15%"
-                zIndex={3}
-                color="white"
-                textAlign="left"
-              >
-                <Text fontSize="5xl" fontWeight="bold" fontFamily='"Oswald", sans-serif'>
-                  El iPhone que quieres
-                </Text>
-                <Text fontSize="26" fontWeight="bold" >
-                  Experimenta la mejor tecnología de Apple
-                </Text>
-                <Button background="grey" mt={4} colorScheme="teal" size="lg" >
-                  Comprar ahora
-                </Button>
-              </Box>
-            )}
-            
-            {index === 0 && (
-              <Box
-                position="absolute"
-                bottom="0"
-                right="5%"
-                top="7"
-                zIndex={3}
-                width={{ base: '850px', md: '650px' }}
-              >
-                <img src={IphonePng} alt="iPhone" />
-              </Box>
-            )}
-          </Box>
-        ))}
-      </Slider>
+  {cards.map((url, index) => (
+    <Box
+      key={index}
+      height={height}
+      width="100%"
+      position="relative"
+      background={`linear-gradient(0deg, rgba(3,34,82,1) 2%, rgba(9,64,149,1) 49%, rgba(3,34,82,1) 74%), url(${url})`}
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+      backgroundSize="cover"
+    >
+      {index === 0 && (
+        <Box
+          position="absolute"
+          top="35%"
+          left="15%"
+          zIndex={3}
+          color="white"
+          textAlign="left"
+        >
+          <Text fontSize="5xl" fontWeight="bold" fontFamily='"Oswald", sans-serif'>
+            El iPhone que quieres
+          </Text>
+          <Text fontSize="26" fontWeight="bold">
+            Experimenta la mejor tecnología de Apple
+          </Text>
+          <Button background="grey" mt={4} colorScheme="teal" size="lg" as="a" href="http://localhost:5173/productos/OeXJZKQVK0TNWalC6rBE">
+              Comprar ahora
+          </Button>
+        </Box>
+      )}
+      
+      {index === 0 && (
+        <Box
+          position="absolute"
+          bottom="0"
+          right="5%"
+          top="7"
+          zIndex={3}
+          width={{ base: '850px', md: '650px' }}
+        >
+          <img src={IphonePng} alt="iPhone" />
+        </Box>
+      )}
+    </Box>
+  ))}
+</Slider>
+
     </Box>
   );
 };

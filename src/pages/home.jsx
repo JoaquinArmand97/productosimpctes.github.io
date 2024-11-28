@@ -1,14 +1,16 @@
 import Carrusel from '../components/carrusel/Carrusel';
 import Cards from '../components/cards/cards';
 import PlanCanje from '../components/PlanCanje/PlanCanje';
-import CardPromotion from '../components/CardPromotion/CardPromotion';
+import Promotionproduct from '../components/promotionproduct/Promotionproduct';
+Promotionproduct
+
 
 function Home() {
   return (
     <div>
         <Carrusel/>
         <Cards/>
-        <CardPromotion/>
+        <Promotionproduct/>
         <PlanCanje/>
     </div>
   );
