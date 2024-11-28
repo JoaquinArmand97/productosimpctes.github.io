@@ -1,25 +1,31 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartState, setCartState] = useState([]);
+  const [cartState, setCartState] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
-  const addItem = (product, qtyItem) => {
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartState));
+  }, [cartState]);
+
+  const addItem = (product) => {
     const existingProduct = cartState.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // Si el producto ya está en el carrito, actualizamos la cantidad, sumando solo la diferencia
       setCartState(
         cartState.map((item) =>
           item.id === product.id
-            ? { ...item, qtyItem: item.qtyItem + qtyItem } // Se suma la cantidad pasada como argumento
+            ? { ...item, qtyItem: item.qtyItem + 1 }
             : item
         )
       );
     } else {
-      // Si el producto no está en el carrito, lo agregamos
-      setCartState([...cartState, { ...product, qtyItem }]);
+      setCartState([...cartState, { ...product, qtyItem: 1 }]);
     }
   };
 
@@ -27,13 +33,13 @@ export const CartProvider = ({ children }) => {
     const existingProduct = cartState.find((item) => item.id === product.id);
 
     if (existingProduct) {
-      // Si la cantidad es 1, eliminamos el producto del carrito
       if (existingProduct.qtyItem === 1) {
-        setCartState(cartState.filter((item) => item.id !== product.id));
+        setCartState((prevCartState) =>
+          prevCartState.filter((item) => item.id !== product.id)
+        );
       } else {
-        // Si la cantidad es mayor a 1, restamos 1 a la cantidad existente
-        setCartState(
-          cartState.map((item) =>
+        setCartState((prevCartState) =>
+          prevCartState.map((item) =>
             item.id === product.id
               ? { ...item, qtyItem: item.qtyItem - 1 }
               : item
@@ -44,16 +50,35 @@ export const CartProvider = ({ children }) => {
   };
 
   const deleteItem = (product) => {
-    setCartState(cartState.filter((item) => item.id !== product.id));
+    setCartState((prevCartState) =>
+      prevCartState.filter((item) => item.id !== product.id)
+    );
   };
 
+  const clearCart = () => {
+    setCartState([]); 
+  };
+
+
+  const totalPrice = () => {
+    return cartState.reduce((acc, item) => acc + item.price * item.qtyItem, 0);
+  };
+
+ 
+  const totalItems = () => {
+    return cartState.reduce((acc, item) => acc + item.qtyItem, 0);
+  };
 
   const valuesToShare = {
     cartState,
     addItem,
     removeItem,
     deleteItem,
+    clearCart,
+    totalPrice,
+    totalItems,
   };
+
 
   return (
     <CartContext.Provider value={valuesToShare}>
@@ -61,3 +86,9 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+CartProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default CartProvider;

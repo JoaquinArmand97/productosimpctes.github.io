@@ -10,7 +10,8 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 import { FaInstagram } from 'react-icons/fa'
-import { FaMeta , FaWhatsapp } from "react-icons/fa6";
+import { FaMeta, FaWhatsapp } from 'react-icons/fa6';
+import PropTypes from 'prop-types';
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -33,8 +34,15 @@ const SocialButton = ({ children, label, href }) => {
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
     </chakra.button>
-  )
-}
+  );
+};
+
+// Definir PropTypes
+SocialButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  label: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+};
 
 const Footer = () => {
   return (
@@ -50,15 +58,12 @@ const Footer = () => {
         justify={'center'}
         align={'center'}
       >
-     
         <Text fontSize={'lg'} fontWeight={'bold'}>
           Productos Importados Corrientes
         </Text>
-
-      
         <Stack direction={{ base: 'column', md: 'row' }} spacing={6}>
-          <SocialButton  label={'Meta'} href={'https://www.facebook.com/ProductosImpCtes/'}>
-          <FaMeta />
+          <SocialButton label={'Meta'} href={'https://www.facebook.com/ProductosImpCtes/'}>
+            <FaMeta />
           </SocialButton>
           <SocialButton label={'Whatsapp'} href={'#'}>
             <FaWhatsapp />
@@ -68,8 +73,6 @@ const Footer = () => {
           </SocialButton>
         </Stack>
       </Container>
-
-      
       <Box
         borderTopWidth={1}
         borderStyle={'solid'}
@@ -84,14 +87,13 @@ const Footer = () => {
           justify={{ base: 'center'}}
           align={{ base: 'center' }}
         >
-          {/* Texto de derechos reservados */}
           <Text textAlign={'center'}>
             © 2024 Productos Importados Corrientes. Todos los derechos reservados.
           </Text>
         </Container>
       </Box>
     </Box>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

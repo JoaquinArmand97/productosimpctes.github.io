@@ -1,9 +1,17 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { Card as ChakraCard, CardBody, Image, Stack, Box, Heading, Text, Divider, CardFooter, ButtonGroup, Button, SimpleGrid } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-
 const Product = ({ products }) => {
+  // Manejo de productos vacíos
+  if (!products || products.length === 0) {
+    return (
+      <Box textAlign="center" p={5}>
+        <Text fontSize="xl">No hay productos disponibles.</Text>
+      </Box>
+    );
+  }
+
   return (
     <SimpleGrid 
       columns={{ base: 1, sm: 2, md: 2, lg: 4 }}  
@@ -47,10 +55,9 @@ const Product = ({ products }) => {
             <Divider />
             <CardFooter>
               <ButtonGroup spacing="2">
-
-              <Button variant="solid" colorScheme="blue" size="sm">
-                <Link to={`/productos/${product.id}`}>Ver Detalles</Link>
-              </Button>
+                <Button variant="solid" colorScheme="blue" size="sm">
+                  <Link to={`/productos/${product.id}`}>Ver Detalles</Link>
+                </Button>
               </ButtonGroup>
             </CardFooter>
           </ChakraCard>
@@ -60,6 +67,17 @@ const Product = ({ products }) => {
   );
 };
 
-
+// Validación de props
+Product.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      image: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default Product;

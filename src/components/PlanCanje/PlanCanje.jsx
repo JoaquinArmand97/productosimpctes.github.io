@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Text, Image } from '@chakra-ui/react';
 
 import plancanjeimg11 from '../assets/plancanjeimg11.png'; 
@@ -23,7 +22,7 @@ export const PlanCanje = () => {
         alt="Iphone1"
         position="absolute"
         left="0"
-        top="55%"
+        top="15%"
         transform="translateY(-50%)"
         boxSize="200px" 
         className="animate__animated animate__fadeInRight"
@@ -55,7 +54,7 @@ export const PlanCanje = () => {
         alt="Iphone2"
         position="absolute"
         right="0"
-        top="50%"
+        top="0%"
         transform="translateY(-50%)"
         boxSize="270px" 
         className="animate__animated animate__fadeInRight"

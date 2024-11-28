@@ -21,28 +21,42 @@ import {
 import { CartContext } from '../context/CartContext';
 
 const CardItem = () => {
-  const { id } = useParams(); // Obtener el ID del producto desde la URL
-  const { product, loading } = useProductById(id); // Usar hook personalizado
+  const { id } = useParams();
+  const { product, loading } = useProductById(id);
+  const [count, setCount] = useState(0);
+  const { addItem, deleteItem } = useContext(CartContext);
 
-  const [count, setCount] = useState(0); // Estado para el contador
-  const { addItem } = useContext(CartContext);
+  const priceTextColor = useColorModeValue('gray.900', 'gray.400');
+  const headerBg = useColorModeValue('gray.900', 'gray.50');
+  const buttonTextColor = useColorModeValue('white', 'gray.900');
+  const featuresTitleColor = useColorModeValue('yellow.500', 'yellow.300');
+  const detailsTitleColor = useColorModeValue('yellow.500', 'yellow.300');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+  const descriptionColor = useColorModeValue('gray.500', 'gray.400');
 
   const handleIncrement = () => {
-    if (count < product.stock) {
-      setCount(prevCount => prevCount + 1); // Incrementar contador
-    }
+    setCount(prevCount => prevCount + 1);
   };
 
   const handleDecrement = () => {
     if (count > 0) {
-      setCount(prevCount => prevCount - 1); // Decrementar contador
+      setCount(prevCount => prevCount - 1);
     }
   };
 
   const handleAddToCart = () => {
     if (count > 0) {
-      addItem(product, count); // Agregar el producto al carrito con la cantidad actual
-      setCount(0); // Reiniciar contador después de agregar al carrito
+      addItem({ ...product, qtyItem: count });
+      setCount(0);
+    } else {
+      alert("Debes seleccionar al menos un producto");
+    }
+  };
+
+  const handleRemoveFromCart = () => {
+    if (count > 0) {
+      deleteItem(product);
+      setCount(0);
     }
   };
 
@@ -51,7 +65,7 @@ const CardItem = () => {
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
         <Spinner size="xl" />
       </Box>
-    ); // Mostrar un spinner mientras carga
+    );
   }
 
   if (!product) {
@@ -59,7 +73,7 @@ const CardItem = () => {
       <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
         <Text fontSize="2xl">Producto no encontrado</Text>
       </Box>
-    ); // Mostrar mensaje si no se encuentra el producto
+    );
   }
 
   return (
@@ -80,24 +94,27 @@ const CardItem = () => {
             h={{ base: '100%', sm: '350px', lg: '450px' }}
           />
         </Flex>
+
         <Stack spacing={{ base: 6, md: 10 }}>
           <Box as={'header'}>
             <Heading lineHeight={1.1} fontWeight={600} fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
               {product.name}
             </Heading>
-            <Text color={useColorModeValue('gray.900', 'gray.400')} fontWeight={300} fontSize={'2xl'}>
+            <Text color={priceTextColor} fontWeight={300} fontSize={'2xl'}>
               ${product.price}
             </Text>
+            
           </Box>
 
-          <Stack spacing={{ base: 4, sm: 6 }} direction={'column'} divider={<StackDivider borderColor={useColorModeValue('gray.200', 'gray.600')} />}>
+          <Stack spacing={{ base: 4, sm: 6 }} direction={'column'} divider={<StackDivider borderColor={borderColor} />}>
             <VStack spacing={{ base: 4, sm: 6 }}>
-              <Text color={useColorModeValue('gray.500', 'gray.400')} fontSize={'2xl'} fontWeight={'300'}>
+              <Text color={descriptionColor} fontSize={'2xl'} fontWeight={'300'}>
                 {product.description}
               </Text>
             </VStack>
+
             <Box>
-              <Text fontSize={{ base: '16px', lg: '18px' }} color={useColorModeValue('yellow.500', 'yellow.300')} fontWeight={'500'} textTransform={'uppercase'} mb={'4'}>
+              <Text fontSize={{ base: '16px', lg: '18px' }} color={featuresTitleColor} fontWeight={'500'} textTransform={'uppercase'} mb={'4'}>
                 Características
               </Text>
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -113,8 +130,9 @@ const CardItem = () => {
                 </List>
               </SimpleGrid>
             </Box>
+
             <Box>
-              <Text fontSize={{ base: '16px', lg: '18px' }} color={useColorModeValue('yellow.500', 'yellow.300')} fontWeight={'500'} textTransform={'uppercase'} mb={'4'}>
+              <Text fontSize={{ base: '16px', lg: '18px' }} color={detailsTitleColor} fontWeight={'500'} textTransform={'uppercase'} mb={'4'}>
                 Detalles del Producto
               </Text>
               <List spacing={2}>
@@ -140,8 +158,8 @@ const CardItem = () => {
             mt={8}
             size={'lg'}
             py={'7'}
-            bg={useColorModeValue('gray.900', 'gray.50')}
-            color={useColorModeValue('white', 'gray.900')}
+            bg={headerBg}
+            color={buttonTextColor}
             textTransform={'uppercase'}
             _hover={{
               transform: 'translateY(2px)',
@@ -151,6 +169,14 @@ const CardItem = () => {
           >
             Agregar al carrito
           </Button>
+
+          <Button
+            onClick={handleRemoveFromCart}
+            mt={4}
+            colorScheme="red"
+          >
+            Eliminar del carrito
+          </Button>
         </Stack>
       </SimpleGrid>
     </Container>
@@ -158,3 +184,4 @@ const CardItem = () => {
 };
 
 export default CardItem;
+

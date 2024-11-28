@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import { ProductsData } from "../components/data/productData";
 import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
