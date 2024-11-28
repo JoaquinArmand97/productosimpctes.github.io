@@ -32,6 +32,7 @@ const NavBar = () => {
         zIndex="10"           
         bg="transparent"      
         px={4}
+        
       >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Link to="/">

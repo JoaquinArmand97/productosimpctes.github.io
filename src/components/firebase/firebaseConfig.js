@@ -18,3 +18,17 @@ const app = initializeApp(firebaseConfig);
 
 // Inicializar Firestore
 export const db = getFirestore(app);
+
+
+export const fetchPhonesByCategory = async (category) => {
+  try {
+    const phonesRef = collection(db, "phones"); // Cambia "phones" con el nombre de tu colección
+    const q = query(phonesRef, where("category", "==", category));
+    const querySnapshot = await getDocs(q);
+    const phones = querySnapshot.docs.map(doc => doc.data());
+    return phones;
+  } catch (error) {
+    console.error("Error fetching phones: ", error);
+    return [];
+  }
+};
