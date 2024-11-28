@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Box,
   chakra,
@@ -65,7 +63,7 @@ const Footer = () => {
           <SocialButton label={'Meta'} href={'https://www.facebook.com/ProductosImpCtes/'}>
             <FaMeta />
           </SocialButton>
-          <SocialButton label={'Whatsapp'} href={'#'}>
+          <SocialButton label={'Whatsapp'} href={'https://www.facebook.com/ProductosImpCtes/'}>
             <FaWhatsapp />
           </SocialButton>
           <SocialButton label={'Instagram'} href={'https://www.instagram.com/productosimpctes/'}>

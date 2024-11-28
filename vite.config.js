@@ -18,6 +18,7 @@ export default defineConfig({
         moduleSideEffects: false, // Asegura que no se incluyan módulos sin efectos colaterales
         propertyReadSideEffects: false, // Optimiza aún más el treeshaking
       },
+      
     },
   },
 })
